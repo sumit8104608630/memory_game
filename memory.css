@@ -1,0 +1,34 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.rows{
+    display: flex;
+   
+   
+    width: fit-content;
+    height: fit-content;
+}
+body{
+    background:linear-gradient(to top,rgb(0, 68, 255),rgb(0, 183, 255),rgb(0, 68, 255));
+
+}
+.col{
+    width: 5rem;
+    height: 5rem;
+    margin: 5px;
+    background-color: rgb(43, 7, 111);
+    border: 1rem solid white;
+    border-radius: 10px;
+}
+.image {
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+.block {
+    display: block !important;
+    display: none;
+    width: 100%;
+    height: 100%;
+}
