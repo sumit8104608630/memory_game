@@ -5,6 +5,8 @@ document.addEventListener("DOMContentLoaded",()=>{
     let new_arr1=[]
     let remove_image=[]
     let game_over=0;
+    let score_player1=0;
+    let score_player2=0;
     let image;
    
     const main_grid=document.querySelector(".grid")
@@ -38,6 +40,7 @@ document.addEventListener("DOMContentLoaded",()=>{
       // game main engine
        console.log(first_image,second_image)
        if(a.length==2){
+    let result=    ( ()=>{
        if(first_image==0&&second_image==12||first_image==12&&second_image==0||
           first_image==1&&second_image==13||first_image==13&&second_image==1||
           first_image==2&&second_image==14||first_image==14&&second_image==2||
@@ -60,18 +63,50 @@ document.addEventListener("DOMContentLoaded",()=>{
        e.style.backgroundColor="red"
        remove_image=[]
        })
+
+       
        game_over=game_over+1
-       console.log(game_over)
+      // console.log(game_over)
        gameOver(game_over)
         console.log(a)
+        console.log(a.length)
+      return true
   
        }
        else {
         console.log("false")
         a=[]
+        remove_image=[]
+       return false
        }
     }
-        })
+    )();
+console.log(result)
+//score board**********************
+
+function score(result){
+if(result==true){
+score_player1=score_player1+1
+}
+else{
+    if(a.length==0){
+        let x=score_player1
+        score_player1=score_player2;
+        score_player2=x
+       }
+}
+display(score_player1,score_player2)
+
+
+
+
+}
+score(result)
+
+
+
+    }
+    })
 
     }
     function generate_random_no(min,max){
@@ -100,12 +135,16 @@ document.addEventListener("DOMContentLoaded",()=>{
 )(); 
 //console.log(game_over)
 function gameOver(game_over){
-    console.log(game_over)
+   // console.log(game_over)
     if(game_over==12){
-        console.log("ss")
-        window.location.reload()
+      //  console.log("ss")
+       // window.location.reload()
     }
 }
+function display(score_player1,score_player2){
+let result=document.querySelector(".result")
 
+result.innerHTML=score_player1+" "+" "+score_player2
+}
 })
 
